@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中部四校联盟 - 南昌大学|华中农业大学|中南大学|湖南大学</title>
+    <meta name="description" content="综合展示南昌大学、华中农业大学、中南大学、湖南大学四所中部地区顶尖高校信息，包括学校简介、特色专业、招生资讯等。">
+    <meta name="keywords" content="南昌大学,华中农业大学,中南大学,湖南大学,985高校,211高校,双一流,高考志愿填报,大学介绍">
+    <meta name="author" content="皮皮">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-username.github.io/universities-showcase/">
+    <meta property="og:title" content="中部四校联盟 - 名校风采">
+    <meta property="og:description" content="综合展示南昌大学、华中农业大学、中南大学、湖南大学四所中部地区顶尖高校信息">
+    <meta property="og:image" content="https://your-username.github.io/universities-showcase/preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-username.github.io/universities-showcase/">
+    <meta property="twitter:title" content="中部四校联盟 - 名校风采">
+    <meta property="twitter:description" content="综合展示南昌大学、华中农业大学、中南大学、湖南大学四所中部地区顶尖高校信息">
+    <meta property="twitter:image" content="https://your-username.github.io/universities-showcase/preview.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://your-username.github.io/universities-showcase/">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "中部四校联盟",
+        "description": "南昌大学、华中农业大学、中南大学、湖南大学综合展示平台",
+        "url": "https://your-username.github.io/universities-showcase/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "中部四校联盟"
+        }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .subtitle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .subtitle::before,
+        .subtitle::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+        }
+
+        .universities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .university-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .university-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+
+        .card-header {
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* 各校主题色 */
+        .ncu .card-header { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .hzau .card-header { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
+        .csu .card-header { background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); }
+        .hnu .card-header { background: linear-gradient(135deg, #dc2626 0%, #f87171 100%); }
+
+        .school-badge {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .ncu .school-badge { color: #1e3a8a; }
+        .hzau .school-badge { color: #059669; }
+        .csu .school-badge { color: #7c3aed; }
+        .hnu .school-badge { color: #dc2626; }
+
+        .school-info {
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .school-name {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .school-name-en {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .info-section {
+            margin-bottom: 20px;
+        }
+
+        .info-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #6b7280;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .info-content {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .ncu .tag { background: #dbeafe; color: #1e40af; }
+        .hzau .tag { background: #d1fae5; color: #065f46; }
+        .csu .tag { background: #ede9fe; color: #5b21b6; }
+        .hnu .tag { background: #fee2e2; color: #991b1b; }
+
+        .card-footer {
+            padding: 0 30px 30px;
+        }
+
+        .btn-visit {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .ncu .btn-visit { background: #1e3a8a; color: white; }
+        .hzau .btn-visit { background: #059669; color: white; }
+        .csu .btn-visit { background: #7c3aed; color: white; }
+        .hnu .btn-visit { background: #dc2626; color: white; }
+
+        .btn-visit:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .stats-bar {
+            background: rgba(255,255,255,0.95);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: #6b7280;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(255,255,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .universities-grid { grid-template-columns: 1fr; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* 动画 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .university-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .university-card:nth-child(1) { animation-delay: 0.1s; }
+        .university-card:nth-child(2) { animation-delay: 0.2s; }
+        .university-card:nth-child(3) { animation-delay: 0.3s; }
+        .university-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏛️ 中部四校联盟</h1>
+            <p>南昌大学 · 华中农业大学 · 中南大学 · 湖南大学</p>
+            <div class="subtitle">探索卓越教育，发现无限可能</div>
+        </header>
+
+        <div class="universities-grid">
+            <!-- 南昌大学 -->
+            <div class="university-card ncu">
+                <div class="card-header">
+                    <div class="school-badge">昌大</div>
+                    <div class="school-info">
+                        <div class="school-name">南昌大学</div>
+                        <div class="school-name-en">Nanchang University</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-section">
+                        <div class="info-label">学校标签</div>
+                        <div class="tags">
+                            <span class="tag">211工程</span>
+                            <span class="tag">双一流</span>
+                            <span class="tag">部省合建</span>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">学校简介</div>
+                        <div class="info-content">
+                            南昌大学是江西省唯一的国家"211工程"重点建设高校，是国家"双一流"建设高校。学校位于江西省会南昌市，拥有前湖、青山湖、东湖等多个校区。
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">特色优势</div>
+                        <div class="info-content">
+                            食品科学与工程、材料科学与工程等学科在国内具有重要影响力，是江西省高等教育的重要支柱。
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.ncu.edu.cn/" target="_blank" class="btn-visit">访问官网 →</a>
+                </div>
+            </div>
+
+            <!-- 华中农业大学 -->
+            <div class="university-card hzau">
+                <div class="card-header">
+                    <div class="school-badge">华农</div>
+                    <div class="school-info">
+                        <div class="school-name">华中农业大学</div>
+                        <div class="school-name-en">Huazhong Agricultural University</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-section">
+                        <div class="info-label">学校标签</div>
+                        <div class="tags">
+                            <span class="tag">211工程</span>
+                            <span class="tag">双一流</span>
+                            <span class="tag">教育部直属</span>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">学校简介</div>
+                        <div class="info-content">
+                            华中农业大学坐落于湖北省武汉市南湖狮子山脚，是中国高等农业教育的重要基地。学校历史悠久，前身可追溯至1898年创办的湖北农务学堂。
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">特色优势</div>
+                        <div class="info-content">
+                            农学、生命科学等学科实力强劲，拥有作物遗传改良全国重点实验室。积极开展国际交流，与多国知名高校建立合作关系。
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.hzau.edu.cn/" target="_blank" class="btn-visit">访问官网 →</a>
+                </div>
+            </div>
+
+            <!-- 中南大学 -->
+            <div class="university-card csu">
+                <div class="card-header">
+                    <div class="school-badge">中南</div>
+                    <div class="school-info">
+                        <div class="school-name">中南大学</div>
+                        <div class="school-name-en">Central South University</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-section">
+                        <div class="info-label">学校标签</div>
+                        <div class="tags">
+                            <span class="tag">985工程</span>
+                            <span class="tag">211工程</span>
+                            <span class="tag">双一流A类</span>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">学校简介</div>
+                        <div class="info-content">
+                            中南大学位于湖南省长沙市，由原中南工业大学、长沙铁道学院与湖南医科大学于2000年合并组建。是教育部直属全国重点大学。
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">特色优势</div>
+                        <div class="info-content">
+                            湘雅医学院享誉全国，临床医学、材料科学、矿业工程等学科实力雄厚。"南湘雅、北协和"的美誉流传至今。
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.csu.edu.cn/" target="_blank" class="btn-visit">访问官网 →</a>
+                </div>
+            </div>
+
+            <!-- 湖南大学 -->
+            <div class="university-card hnu">
+                <div class="card-header">
+                    <div class="school-badge">湖大</div>
+                    <div class="school-info">
+                        <div class="school-name">湖南大学</div>
+                        <div class="school-name-en">Hunan University</div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="info-section">
+                        <div class="info-label">学校标签</div>
+                        <div class="tags">
+                            <span class="tag">985工程</span>
+                            <span class="tag">211工程</span>
+                            <span class="tag">双一流B类</span>
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">学校简介</div>
+                        <div class="info-content">
+                            湖南大学坐落于中国历史文化名城长沙，校区位于湘江之滨、岳麓山下，享有"千年学府，百年名校"之誉。学校办学起源于公元976年创建的岳麓书院。
+                        </div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">特色优势</div>
+                        <div class="info-content">
+                            土木工程、化学、机械工程等学科全国领先。岳麓书院是世界上最古老的学府之一，传承千年文脉。
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.hnu.edu.cn/" target="_blank" class="btn-visit">访问官网 →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <h3>4</h3>
+                <p>所顶尖高校</p>
+            </div>
+            <div class="stat-item">
+                <h3>2</h3>
+                <p>所985高校</p>
+            </div>
+            <div class="stat-item">
+                <h3>4</h3>
+                <p>所211高校</p>
+            </div>
+            <div class="stat-item">
+                <h3>2</h3>
+                <p>个省份</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>数据来源于各校官方网站 | 页面设计：皮皮 🦐</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">本页面仅供展示使用，请以各校官网信息为准</p>
+        </footer>
+    </div>
+
+    <script>
+        // 添加卡片交互效果
+        document.querySelectorAll('.university-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+
+        // 添加点击统计
+        document.querySelectorAll('.btn-visit').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const school = this.closest('.university-card').querySelector('.school-name').textContent;
+                console.log(`正在访问 ${school} 官网...`);
+            });
+        });
+    </script>
+</body>
+</html>
