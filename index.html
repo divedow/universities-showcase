@@ -11,20 +11,20 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-username.github.io/universities-showcase/">
+    <meta property="og:url" content="https://divedow.github.io/universities-showcase/">
     <meta property="og:title" content="中部四校联盟 - 名校风采">
     <meta property="og:description" content="综合展示南昌大学、华中农业大学、中南大学、湖南大学四所中部地区顶尖高校信息">
-    <meta property="og:image" content="https://your-username.github.io/universities-showcase/preview.png">
+    <meta property="og:image" content="https://divedow.github.io/universities-showcase/preview.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://your-username.github.io/universities-showcase/">
+    <meta property="twitter:url" content="https://divedow.github.io/universities-showcase/">
     <meta property="twitter:title" content="中部四校联盟 - 名校风采">
     <meta property="twitter:description" content="综合展示南昌大学、华中农业大学、中南大学、湖南大学四所中部地区顶尖高校信息">
-    <meta property="twitter:image" content="https://your-username.github.io/universities-showcase/preview.png">
+    <meta property="twitter:image" content="https://divedow.github.io/universities-showcase/preview.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://your-username.github.io/universities-showcase/">
+    <link rel="canonical" href="https://divedow.github.io/universities-showcase/">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -33,7 +33,7 @@
         "@type": "WebSite",
         "name": "中部四校联盟",
         "description": "南昌大学、华中农业大学、中南大学、湖南大学综合展示平台",
-        "url": "https://your-username.github.io/universities-showcase/",
+        "url": "https://divedow.github.io/universities-showcase/",
         "publisher": {
             "@type": "Organization",
             "name": "中部四校联盟"
@@ -61,9 +61,66 @@
             padding: 40px 20px;
         }
 
+        /* 导航栏样式 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #6b7280;
+            background: #f3f4f6;
+            border: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-link.active {
+            color: white;
+            font-weight: 600;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-link.ncu.active { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+        .nav-link.hzau.active { background: linear-gradient(135deg, #059669 0%, #10b981 100%); }
+        .nav-link.csu.active { background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); }
+        .nav-link.hnu.active { background: linear-gradient(135deg, #dc2626 0%, #f87171 100%); }
+
         header {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             color: white;
         }
 
@@ -294,8 +351,20 @@
             border-bottom: 1px dashed rgba(255,255,255,0.5);
         }
 
+        /* 显示/隐藏控制 */
+        .university-card {
+            display: none;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .university-card.active {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             header h1 { font-size: 2rem; }
+            .navbar { padding: 15px 20px; }
+            .nav-link { padding: 10px 16px; font-size: 0.9rem; }
             .universities-grid { grid-template-columns: 1fr; }
             .stats-bar { grid-template-columns: repeat(2, 1fr); }
         }
@@ -324,15 +393,26 @@
 </head>
 <body>
     <div class="container">
+        <!-- 导航栏 -->
+        <nav class="navbar">
+            <div class="navbar-title">🏛️ 选择院校</div>
+            <div class="nav-links">
+                <a class="nav-link ncu active" data-school="ncu" href="#">南昌大学</a>
+                <a class="nav-link hzau" data-school="hzau" href="#">华中农业大学</a>
+                <a class="nav-link csu" data-school="csu" href="#">中南大学</a>
+                <a class="nav-link hnu" data-school="hnu" href="#">湖南大学</a>
+            </div>
+        </nav>
+
         <header>
-            <h1>🏛️ 中部四校联盟</h1>
-            <p>南昌大学 · 华中农业大学 · 中南大学 · 湖南大学</p>
+            <h1>中部四校联盟</h1>
+            <p id="school-title">南昌大学</p>
             <div class="subtitle">探索卓越教育，发现无限可能</div>
         </header>
 
         <div class="universities-grid">
             <!-- 南昌大学 -->
-            <div class="university-card ncu">
+            <div class="university-card ncu active">
                 <div class="card-header">
                     <div class="school-badge">昌大</div>
                     <div class="school-info">
@@ -502,6 +582,39 @@
     </div>
 
     <script>
+        // 导航栏切换功能
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // 移除所有导航链接的 active 状态
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+
+                // 添加当前导航链接的 active 状态
+                this.classList.add('active');
+
+                // 获取学校类型
+                const schoolType = this.getAttribute('data-school');
+
+                // 隐藏所有大学卡片
+                document.querySelectorAll('.university-card').forEach(card => {
+                    card.classList.remove('active');
+                });
+
+                // 显示选中的大学卡片
+                document.querySelector(`.university-card.${schoolType}`).classList.add('active');
+
+                // 更新标题
+                const schoolNames = {
+                    'ncu': '南昌大学',
+                    'hzau': '华中农业大学',
+                    'csu': '中南大学',
+                    'hnu': '湖南大学'
+                };
+                document.getElementById('school-title').textContent = schoolNames[schoolType];
+            });
+        });
+
         // 添加卡片交互效果
         document.querySelectorAll('.university-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
