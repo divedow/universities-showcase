@@ -313,6 +313,113 @@
             transform: scale(1.02);
         }
 
+        .btn-admissions {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: 2px solid;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .ncu .btn-admissions { 
+            border-color: #1e3a8a; 
+            color: #1e3a8a;
+            background: rgba(30, 58, 138, 0.1);
+        }
+        .hzau .btn-admissions { 
+            border-color: #059669; 
+            color: #059669;
+            background: rgba(5, 150, 105, 0.1);
+        }
+        .csu .btn-admissions { 
+            border-color: #7c3aed; 
+            color: #7c3aed;
+            background: rgba(124, 58, 237, 0.1);
+        }
+        .hnu .btn-admissions { 
+            border-color: #dc2626; 
+            color: #dc2626;
+            background: rgba(220, 38, 38, 0.1);
+        }
+
+        .btn-admissions:hover {
+            transform: scale(1.02);
+            opacity: 0.8;
+        }
+
+        /* 招生就业内容区域 */
+        .admissions-section {
+            display: none;
+            margin-top: 20px;
+            padding: 25px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid;
+        }
+
+        .ncu .admissions-section { border-left-color: #1e3a8a; }
+        .hzau .admissions-section { border-left-color: #059669; }
+        .csu .admissions-section { border-left-color: #7c3aed; }
+        .hnu .admissions-section { border-left-color: #dc2626; }
+
+        .admissions-section.active {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .admissions-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1f2937;
+        }
+
+        .admissions-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .admission-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .admission-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #374151;
+        }
+
+        .admission-item p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+
+        .admission-link {
+            display: inline-block;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .admission-link:hover {
+            text-decoration: underline;
+        }
+
         .stats-bar {
             background: rgba(255,255,255,0.95);
             border-radius: 16px;
@@ -443,7 +550,33 @@
                     </div>
                 </div>
                 <div class="card-footer">
+                    <a href="#" class="btn-admissions" onclick="toggleAdmissions('ncu')">📋 招生就业</a>
                     <a href="https://www.ncu.edu.cn/" target="_blank" class="btn-visit">访问官网 →</a>
+                </div>
+                <div class="admissions-section" id="admissions-ncu">
+                    <div class="admissions-title">南昌大学招生就业信息</div>
+                    <div class="admissions-content">
+                        <div class="admission-item">
+                            <h4>🎓 本科招生</h4>
+                            <p>南昌大学面向全国招生，涵盖文、理、工、医、经、管、法、教、艺等多个学科门类。</p>
+                            <a href="https://zsb.ncu.edu.cn/" target="_blank" class="admission-link">招生官网 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>🎓 研究生招生</h4>
+                            <p>拥有博士、硕士学位授予权，招收硕士研究生、博士研究生和博士后。</p>
+                            <a href="https://yjsy.ncu.edu.cn/" target="_blank" class="admission-link">研究生院 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>💼 就业指导</h4>
+                            <p>就业指导中心为学生提供职业规划、实习推荐、就业信息等服务。</p>
+                            <a href="https://jy.ncu.edu.cn/" target="_blank" class="admission-link">就业指导中心 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>🏫 校园招聘</h4>
+                            <p>定期举办校园招聘会，为学生提供与企业面对面交流的机会。</p>
+                            <a href="https://jy.ncu.edu.cn/zph/" target="_blank" class="admission-link">招聘会信息 →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -479,7 +612,33 @@
                     </div>
                 </div>
                 <div class="card-footer">
+                    <a href="#" class="btn-admissions" onclick="toggleAdmissions('hzau')">📋 招生就业</a>
                     <a href="https://www.hzau.edu.cn/" target="_blank" class="btn-visit">访问官网 →</a>
+                </div>
+                <div class="admissions-section" id="admissions-hzau">
+                    <div class="admissions-title">华中农业大学招生就业信息</div>
+                    <div class="admissions-content">
+                        <div class="admission-item">
+                            <h4>🎓 本科招生</h4>
+                            <p>以农科为优势，多学科协调发展，面向全国招收本科生，实行招生"阳光工程"。</p>
+                            <a href="https://zs.hzau.edu.cn/" target="_blank" class="admission-link">招生官网 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>🎓 研究生招生</h4>
+                            <p>拥有国家级重点学科，招收硕士、博士研究生，农业科学、植物科学等学科实力强劲。</p>
+                            <a href="https://grs.hzau.edu.cn/" target="_blank" class="admission-link">研究生院 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>💼 就业指导</h4>
+                            <p>就业指导中心为学生提供全程化、个性化的就业指导服务，就业率保持较高水平。</p>
+                            <a href="https://jy.hzau.edu.cn/" target="_blank" class="admission-link">就业指导中心 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>🏫 校企合作</h4>
+                            <p>与众多农业企业建立合作关系，为学生提供实习和就业机会。</p>
+                            <a href="https://jy.hzau.edu.cn/xqhz.htm" target="_blank" class="admission-link">校企合作 →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -515,7 +674,33 @@
                     </div>
                 </div>
                 <div class="card-footer">
+                    <a href="#" class="btn-admissions" onclick="toggleAdmissions('csu')">📋 招生就业</a>
                     <a href="https://www.csu.edu.cn/" target="_blank" class="btn-visit">访问官网 →</a>
+                </div>
+                <div class="admissions-section" id="admissions-csu">
+                    <div class="admissions-title">中南大学招生就业信息</div>
+                    <div class="admissions-content">
+                        <div class="admission-item">
+                            <h4>🎓 本科招生</h4>
+                            <p>国家"985工程"、"211工程"重点建设高校，在全国范围内招收优秀本科生。</p>
+                            <a href="https://zhaosheng.csu.edu.cn/" target="_blank" class="admission-link">招生官网 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>🎓 研究生招生</h4>
+                            <p>拥有多个国家级重点学科，湘雅医学院享誉全国，研究生教育质量优异。</p>
+                            <a href="https://grs.csu.edu.cn/" target="_blank" class="admission-link">研究生院 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>💼 就业指导</h4>
+                            <p>就业指导中心为学生提供全方位就业服务，毕业生就业质量位居全国前列。</p>
+                            <a href="https://job.csu.edu.cn/" target="_blank" class="admission-link">就业信息网 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>🏫 校园招聘</h4>
+                            <p>定期举办大型校园招聘会，世界500强企业积极参与，为学生提供优质就业机会。</p>
+                            <a href="https://job.csu.edu.cn/zph/" target="_blank" class="admission-link">招聘会安排 →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -551,7 +736,33 @@
                     </div>
                 </div>
                 <div class="card-footer">
+                    <a href="#" class="btn-admissions" onclick="toggleAdmissions('hnu')">📋 招生就业</a>
                     <a href="https://www.hnu.edu.cn/" target="_blank" class="btn-visit">访问官网 →</a>
+                </div>
+                <div class="admissions-section" id="admissions-hnu">
+                    <div class="admissions-title">湖南大学招生就业信息</div>
+                    <div class="admissions-content">
+                        <div class="admission-item">
+                            <h4>🎓 本科招生</h4>
+                            <p"千年学府，百年名校"，历史悠久，文化底蕴深厚，面向全国招收优秀本科生。</p>
+                            <a href="https://zsb.hnu.edu.cn/" target="_blank" class="admission-link">招生官网 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>🎓 研究生招生</h4>
+                            <p>拥有多个国家级重点学科，土木工程、化学等学科实力雄厚，研究生教育质量优异。</p>
+                            <a href="https://yjsy.hnu.edu.cn/" target="_blank" class="admission-link">研究生院 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>💼 就业指导</h4>
+                            <p>就业指导中心为学生提供个性化就业指导服务，毕业生就业率保持在较高水平。</p>
+                            <a href="https://jy.hnu.edu.cn/" target="_blank" class="admission-link">就业指导中心 →</a>
+                        </div>
+                        <div class="admission-item">
+                            <h4>🏫 校企合作</h4>
+                            <p>与众多知名企业建立深度合作关系，为学生提供实习和就业机会。</p>
+                            <a href="https://jy.hnu.edu.cn/qyhz.htm" target="_blank" class="admission-link">校企合作 →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -604,6 +815,11 @@
                 // 显示选中的大学卡片
                 document.querySelector(`.university-card.${schoolType}`).classList.add('active');
 
+                // 隐藏所有招生就业信息
+                document.querySelectorAll('.admissions-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+
                 // 更新标题
                 const schoolNames = {
                     'ncu': '南昌大学',
@@ -614,6 +830,24 @@
                 document.getElementById('school-title').textContent = schoolNames[schoolType];
             });
         });
+
+        // 招生就业信息切换功能
+        function toggleAdmissions(schoolType) {
+            const admissionsSection = document.getElementById(`admissions-${schoolType}`);
+            
+            // 如果当前显示的是这个学校的招生就业信息，则隐藏
+            if (admissionsSection.classList.contains('active')) {
+                admissionsSection.classList.remove('active');
+            } else {
+                // 隐藏所有其他学校的招生就业信息
+                document.querySelectorAll('.admissions-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // 显示当前学校的招生就业信息
+                admissionsSection.classList.add('active');
+            }
+        }
 
         // 添加卡片交互效果
         document.querySelectorAll('.university-card').forEach(card => {
